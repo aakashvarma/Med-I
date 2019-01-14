@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/upload', (req, res) => {
-    res.send("this is the uploads page.");
+    res.render('upload');
 });
 
 module.exports = router;

@@ -29,7 +29,8 @@ router.post('/upload', function (req, res, next) {
         imageUpload.create({ success: true,  filename: req.file.filename,  path: req.file.path })
         .then(function(imageData){
             data = imageData;
-            res.send(imageData);
+            // res.send(imageData);
+            res.redirect("api")
             console.log("Image uploaded sussessfully and data is sent to the database.")
         }).catch(next);
     });
