@@ -19,14 +19,10 @@ from keras.models import Sequential
 from keras.layers import Conv2D, Flatten, MaxPooling2D, Dropout, Dense
 from keras.models import model_from_json
 from PIL import Image
-from flask import Flask
 from keras import backend as K
 
 
 
-
-url = 'http://127.0.0.1:8000/image/api'
-dirPath = '/Users/aakashvarma/Documents/Coding/Med-I/Backend/uploads'
 
 model = Sequential()
 model.add(Conv2D(5, (40, 40), padding='same', activation='relu', input_shape=(176, 176, 1)))
@@ -50,25 +46,10 @@ class A(object):
 
     from keras.utils import to_categorical
     y = to_categorical(y)
-
-
-    # def model(input_shape = (176, 176, 1)):
-    #     layers = Sequential()
-    #     layers.add(Conv2D(5, (40, 40), padding='same', activation='relu', input_shape=input_shape))
-    #     layers.add(Conv2D(3, (20, 20)))
-    #     layers.add(Conv2D(3, (15, 15)))
-    #     layers.add(MaxPooling2D(pool_size=(2, 2)))
-    #     layers.add(Dropout(0.25))
-    #     layers.add(Flatten())
-    #     layers.add(Dense(20))
-    #     layers.add(Dense(2, activation='softmax'))
-    #     return layers
-
-    # model = model()
-
-
-        
     
+    def __init__(self):
+        self.url = 'http://127.0.0.1:8000/image/api'
+        self.dirPath = '/Users/aakashvarma/Documents/Coding/Med-I/Backend/uploads'
 
     def load_trained_model(self):
         os.chdir('/Users/aakashvarma/Documents/Coding/Med-I/Python_files')
@@ -85,11 +66,11 @@ class A(object):
     # get data from the API
     def getData(self, link):
         response = requests.get(link)
-        data = response.json()
-        return data['filename']
+        self.data = response.json()
+        return self.data
 
     def extractImage(self, path):
-        imgFilename= self.getData(url)
+        imgFilename= self.getData(self.url)['filename']
         os.chdir(path)
         try:
             img = Image.open(imgFilename)
@@ -105,43 +86,35 @@ class A(object):
 
 
     def prediction(self):
-       
-        # K.clear_session()
-        imfile = self.extractImage(dirPath)
+        imfile = self.extractImage(self.dirPath)
         data=np.asarray(imfile, dtype="int32")
         # return json.dumps(data.shape)
         ynew = data.reshape(1,176,176,1)
-        
-        # return json.dumps(data.shape)
-        
         # Pred = model.predict(ynew)
         self.load_trained_model()
         self.predc = model.predict_classes(ynew)
         # return json.dumps({"ans" : self.predc})
         if self.predc == [0]:
-            return json.dumps({"prediction" : "no"})
+            return "no"
         else:
-            return json.dumps({"prediction" : "yes"})
-
-        # return json.dumps({"success": "[1, 2, 3]"})
-
-    
-# 
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    obj = A()
-    # obj.load_trained_model()
-    return obj.prediction()
+            return "yes"
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 
-# 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
