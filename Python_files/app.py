@@ -6,7 +6,7 @@
 # 404 -- the resource you tried to access wasn't found on the server.
 
 
-from test import A
+from alzheimers import Predict_alhzeimer
 from flask import Flask
 import json
 
@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    obj = A()
+    obj = Predict_alhzeimer()
     return json.dumps({
         "image_data" : obj.getData(obj.url),
         "prediction" : obj.prediction()
