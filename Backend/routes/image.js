@@ -29,14 +29,15 @@ router.post('/upload', function (req, res, next) {
         imageUpload.create({ success: true,  filename: req.file.filename,  path: req.file.path })
         .then(function(imageData){
             data = imageData;
-            res.send(imageData);
+            // res.send(imageData);
+            res.redirect("../getpredict")
             console.log("Image uploaded sussessfully and data is sent to the database.")
         }).catch(next);
     });
 });
 
 router.get('/api', function(req, res){
-    res.send(data);
+    res.json(data);
 });
 
 
