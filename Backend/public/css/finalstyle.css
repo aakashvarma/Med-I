@@ -1,0 +1,27 @@
+body {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.info {
+    padding: 40px; 
+    background-color: #fafafa; 
+    border: 1px solid; 
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.scan {
+    padding: 40px; 
+    background-color: #fafafa; 
+    border: 1px solid; 
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.remarks {
+    padding: 40px; 
+    background-color: #fafafa; 
+    border: 1px solid; 
+    border-radius: 6px;
+    margin-bottom: 20px;  
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+
+    <link href="../public/css/finalstyle.css" rel="stylesheet">
+
+    <title>Final page</title>
+  </head>
+  <body>
+      <div class="container" style="padding: 40px">
+        <div class="text-center"><h1>Medical Report</h1></div>
+      </div>
+
+      <div class="info container">
+        <h5><strong>Personal Details</strong></h5>
+        <p><strong>Name:</strong> Aakash Varma</p>
+        <p><strong>Age:</strong> 21</p>
+        <p><strong>Gender:</strong> Male</p>
+        <p><strong>Mobile Number:</strong> +91 7660066152</p>
+      </div>
+
+      <div class="scan container">
+          <div class="row">
+              <div class="col-6">
+                <h5><strong>Scan Uploaded</strong></h5>
+                <img src="http://127.0.0.1:8000/image/view" class="img-rounded" alt="Scan inage" style="height: 250px">
+              </div>
+              <div class="col-6">
+                <h5><strong>Scan Details</strong></h5></br>
+                  <p>Educ: 62314.6</p>
+                  <p>SES: 152.34</p>
+                  <p>MMSE: 173027.2</p>
+                  <p>CDR: 010.29</p>
+                  <p>eTIV: 1123</p>
+                  <p>nWBV0: 660</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="remarks container">
+        <div>
+          <h5><strong>Classifier Remarks</strong></h5></br>
+          <p>Alzheimer's Disease: <%= prediction %></p>
+          <p>Brain Tumor: No</p>
+          <p>Brain Haemorrhage: No</p>
+        </div>
+      </div>
+
+      <div class="note container" style="padding-bottom: 60px">
+        <p><strong><i>*Note: This report and the remarks have been computer generated.</i></strong></p>
+      </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>

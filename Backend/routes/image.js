@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let multer = require('multer');
+let fs = require('fs')
 
 let imageUpload = require('../models/photo');
 
@@ -29,16 +30,24 @@ router.post('/upload', function (req, res, next) {
         imageUpload.create({ success: true,  filename: req.file.filename,  path: req.file.path })
         .then(function(imageData){
             data = imageData;
-            res.send(imageData);
+            // res.send(imageData);
+            res.redirect("../getpredict")
             console.log("Image uploaded sussessfully and data is sent to the database.")
         }).catch(next);
     });
 });
 
+// @route GET - to get api info
 router.get('/api', function(req, res){
-    res.send(data);
+    res.json(data);  // always has to be json
 });
 
+
+// @route GET - to view image
+router.get('/view', (req, res) => {
+    let readstream = fs.createReadStream(data.path);
+    readstream.pipe(res);
+});
 
 module.exports = router;
 
