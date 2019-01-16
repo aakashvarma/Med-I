@@ -1,3 +1,4 @@
+
 # 200 -- everything went okay, and the result has been returned (if any)
 # 301 -- the server is redirecting you to a different endpoint. This can happen when a company switches domain names, or an endpoint name is changed.
 # 401 -- the server thinks you're not authenticated. This happens when you don't send the right credentials to access an API (we'll talk about authentication in a later post).
@@ -7,6 +8,7 @@
 
 
 from alzheimers import Predict_alhzeimer
+
 from flask import Flask
 import json
 
