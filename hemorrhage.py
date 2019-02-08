@@ -89,9 +89,6 @@ class Pred_hemo(object):
     def prediction(self):
         imfile = self.extractImage(self.dirPath)
         #imfile = self.extractImage()
-        
-        #data = np.arange(359640).reshape(648, 555 )
-        #data=np.asarray(imfile, dtype="int32")
         #data=np.asarray(cv2.resize(imfile,(128,128)))
         data = np.asarray(imfile.resize((128, 128), PIL.Image.ANTIALIAS))
         ynew = data.reshape(1,128,128,3)
