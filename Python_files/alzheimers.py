@@ -61,7 +61,12 @@ class Predict_alhzeimer(object):
         return self.data
 
     def extractImage(self, path):
-        imgFilename= self.getData(self.url)['filename']
+        imgData = self.getData(self.url)
+        imgFilename = imgData["imagedata"]["filename"]
+
+        # Have to change the path to the file name
+
+
         os.chdir(path)
         try:
             img = Image.open(imgFilename)
