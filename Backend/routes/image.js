@@ -37,9 +37,9 @@ router.post('/upload', urlencodedParser, function (req, res, next) {
             raw_data = req.body;
             // res.send(imageData);
             res.redirect("../getpredict")
-            console.log("Image uploaded sussessfully and data is sent to the database.")
-            console.log(req.body);
-            console.log(image_data);
+            // console.log("Image uploaded sussessfully and data is sent to the database.")
+            // console.log(req.body);
+            // console.log(image_data);
         }).catch(next);
     });
 });
@@ -55,7 +55,7 @@ router.get('/api', function(req, res){
 
 // @route GET - to view image
 router.get('/view', (req, res) => {
-    let readstream = fs.createReadStream(data.path);
+    let readstream = fs.createReadStream(image_data.path);
     readstream.pipe(res);
 });
 
