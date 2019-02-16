@@ -20,7 +20,8 @@ router.get('/getpredict', (req, res) => {
             res.render('../views/final', data);
         }
         catch(error){
-            console.log("######### ERROR ##########")
+            console.log("## ERROR: Couldnot fetch from port 50000 ##")
+            console.log("1. Connect to the internet\n2. run server at port 5000")
             // console.log(error);
         }
     };

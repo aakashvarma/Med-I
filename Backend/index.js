@@ -16,6 +16,7 @@ mongoose.Promise = global.Promise;
 
 // use the body parser
 app.use(bodyParser.json());
+
 app.use('/public', express.static('public'))
 app.set('view engine', 'ejs');
 

@@ -2,11 +2,14 @@ let express = require('express');
 let router = express.Router();
 let multer = require('multer');
 let fs = require('fs')
+let bodyParser = require('body-parser')
+let extend = require('extend');
 
 let imageUpload = require('../models/photo');
 
 // global variable declaration
-let data
+let image_data
+let raw_data
 
 
 let storage = multer.diskStorage({
@@ -20,8 +23,9 @@ let storage = multer.diskStorage({
 
 let upload = multer({ storage: storage }).single('profileImage');
 
+let urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-router.post('/upload', function (req, res, next) {
+router.post('/upload', urlencodedParser, function (req, res, next) {
     upload(req, res, function (err) {
         if (err) {
             // An error occurred when uploading
@@ -29,17 +33,23 @@ router.post('/upload', function (req, res, next) {
         }
         imageUpload.create({ success: true,  filename: req.file.filename,  path: req.file.path })
         .then(function(imageData){
-            data = imageData;
+            image_data = imageData;
+            raw_data = req.body;
             // res.send(imageData);
             res.redirect("../getpredict")
             console.log("Image uploaded sussessfully and data is sent to the database.")
+            console.log(req.body);
+            console.log(image_data);
         }).catch(next);
     });
 });
 
 // @route GET - to get api info
 router.get('/api', function(req, res){
-    res.json(data);  // always has to be json
+    res.json({
+        imagedata: image_data,
+        rawdata: raw_data
+    });  // always has to be json
 });
 
 

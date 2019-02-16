@@ -4,26 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-
-    <title>Kyle</title>
+    <title>Scan Upload</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 m-auto">
-                <h1 class="text-center display-4 my-4"> Medical Scans upload </h1>
-                <form action="image/upload" method="POST" enctype="multipart/form-data">
-                    <div class="custom-file mb-3">
-                        <input type="file" id="fileupload" name="profileImage" class="custom-file-input"> 
-                        <label for="file" class="custom-file-label">Choose file</label>
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-block">
-                </form>
+    <div class = "container" style="padding-top: 50px; padding-bottom: 50px">
+        <h5><strong>Patient Information</strong></h5>
+        <form action="image/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">Full Name:</label>
+                <div class="col-10">
+                <input class="form-control" type="text" id="example-name-input" name="name" placeholder="Enter name here">
+                </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label">Age: </label>
+                <div class="col-10">
+                <input class="form-control" type="number" id="example-age-input" name="age" placeholder="Enter your age here">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-email-input" class="col-2 col-form-label">Email:</label>
+                <div class="col-10">
+                <input class="form-control" type="email" id="example-email-input" name="email" placeholder="Ex: youremail@email.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-number-input" class="col-2 col-form-label">Phone Number:</label>
+                <div class="col-10">
+                <input class="form-control" type="number" id="example-number-input" name="number" placeholder="Ex: +91 912345678">
+                </div>
+            </div>
+            <div>
+                <p>Select Gender:</p>
+                <select name="gender" id="gender">
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                </select>
+            </div>
+            </br>
+            <div>
+                <p>Select Type of Scan:</p>
+                <select name="scan" id="scan">
+                    <option value="mri">MRI</option>
+                    <option value="ct">CT</option>
+                </select>
+            </div>
+            </br>
+            <div class="custom-file">
+                <input type="file" id="fileupload" name="profileImage" class="custom-file-input">
+                <label class="custom-file-label" for="customFile">Choose Scan file</label>
+            </div>
+            </br>
+            </br>
+            <div class="card">
+                <div class="card-body" style="background: #ffe8ea">
+                    <code><strong>*NOTE</strong></code></br>
+                    <code>The following form is optional</code>
+                    <code>Fill the following only to get more details of dementia rating. Fill the details only when uploading scans for dementia rating.</code>
+                </div>
+            </div>
+            </br>
+            <div>
+                <!-- ['M/F', 'Age', 'EDUC', 'SES', 'MMSE', 'eTIV', 'nWBV', 'ASF'] -->
+                <h5>Additional Scan details:</h5>
+                <div>
+                    <table class="table table-bordered" style="background: #fafafa">
+                        <thead>
+                        <tr>
+                            <th scope="col">COL</th>
+                            <th scope="col">FULL-FORMS</th>
+                            <th scope="col">DESCRIPTION</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">MMSE</th>
+                            <td>Mini Mental State Examination</td>
+                            <td>The Mini-Mental State Examination (MMSE) or Folstein test is a 30-point questionnaire that is used extensively in clinical and research settings to measure cognitive impairment.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">CDR</th>
+                            <td>Clinical Dementia Rating</td>
+                            <td>The severeness of dementia (0 - no dementia, 0.5 - medium dementia, 1 - higher stage of dementia)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">eTIV</th>
+                            <td>Estimated Total Intracranial Volume</td>
+                            <td>Total intracranial volume (TIV/ICV) is an important covariate for volumetric analyses of the brain and brain regions, especially in the study of neurodegenerative diseases, where it can provide a proxy of maximum pre-morbid brain volume.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">nWBV</th>
+                            <td>Normalize Whole Brain Volume</td>
+                            <td>The whole volume of the brain</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ASF</th>
+                            <td>Atlas Scaling Factor</td>
+                            <td>Scaling factor to normalise all people brain volumes</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-2 col-form-label">EDUC: </label>
+                    <div class="col-10">
+                    <input class="form-control" type="number" value="Enter age here" name="educ" id="educ" step="any">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-2 col-form-label">SES: </label>
+                    <div class="col-10">
+                    <input class="form-control" type="number" value="Enter age here" name="ses" id="ses" step="any">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-2 col-form-label">MMSE: </label>
+                    <div class="col-10">
+                    <input class="form-control" type="number" value="Enter age here" name="mmse" id="mmse" step="any">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-2 col-form-label">eTIV: </label>
+                    <div class="col-10">
+                    <input class="form-control" type="number" value="Enter age here" name="etiv" id="etiv" step="any">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-2 col-form-label">nEBV: </label>
+                    <div class="col-10">
+                    <input class="form-control" type="number" value="Enter age here" name="nebv" id="nebv" step="any">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-search-input" class="col-2 col-form-label">ASF: </label>
+                    <div class="col-10">
+                    <input class="form-control" type="number" value="Enter age here" name="asf" id="asf" step="any">
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary btn-block">
+        </form>
     </div>
+    
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
