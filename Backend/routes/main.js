@@ -23,7 +23,8 @@ router.get('/getpredict', (req, res) => {
             data = {
                 "prediction": api_data["prediction"],
                 "name": api_data["image_data"]["rawdata"]["name"],
-                "age":api_data["image_data"]["rawdata"]["age"],
+                "age": api_data["image_data"]["rawdata"]["age"],
+                "scan": api_data["image_data"]["rawdata"]["scan"],
                 // "email": api_data["image_data"]["rawdata"]["email"],
                 "gender": api_data["image_data"]["rawdata"]["gender"],
                 "number": api_data["image_data"]["rawdata"]["number"],
