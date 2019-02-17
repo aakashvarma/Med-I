@@ -56,11 +56,11 @@ class Pred_hemo(object):
     def __init__(self):
         self.model=bigger_conv_model((128,128,3))
         self.url = 'http://127.0.0.1:8000/image/api'
-        self.dirPath = 'image file directory.....'
+        self.dirPath = '/Users/aakashvarma/Documents/Coding/Med-I/backend/uploads'  
         
     
     def load_train_model(self):
-        os.chdir('.py file directory....')
+        os.chdir('/Users/aakashvarma/Documents/Coding/Med-I/python_files')
         
         self.model.compile(loss='binary_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
         self.model.load_weights("bigger_model_chcekpoint_weights.h5")
@@ -91,7 +91,7 @@ class Pred_hemo(object):
 
 
     def prediction(self):
-        imfile = self.extractImage(self.dirPath)
+        imfile = self.extractImage('/Users/aakashvarma/Documents/Coding/Med-I/backend/uploads')
         #imfile = self.extractImage()
         #data=np.asarray(cv2.resize(imfile,(128,128)))
         data = np.asarray(imfile.resize((128, 128), PIL.Image.ANTIALIAS))

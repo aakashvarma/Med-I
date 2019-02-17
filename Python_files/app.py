@@ -33,7 +33,7 @@ def hello():
     elif imgScanType == 'ct':
         obj = Pred_hemo()
         return json.dumps({
-            "image_data":obj.getData(obj.dirPath),
+            "image_data":obj.getData(obj.url),
             "prediction":obj.prediction()
         })
     else:

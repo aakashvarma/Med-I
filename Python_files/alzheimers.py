@@ -40,10 +40,10 @@ class Predict_alhzeimer(object):
     
     def __init__(self):
         self.url = 'http://127.0.0.1:8000/image/api'
-        self.dirPath = '/Users/aakashvarma/Documents/Coding/Med-I/Backend/uploads'
+        self.dirPath = '/Users/aakashvarma/Documents/Coding/Med-I/backend/uploads'
 
     def load_trained_model(self):
-        os.chdir('/Users/aakashvarma/Documents/Coding/Med-I/Python_files')
+        os.chdir('/Users/aakashvarma/Documents/Coding/Med-I/python_files')
         json_file = open('model.json', 'r')
         loaded_model_json = json_file.read()
         json_file.close()
