@@ -8,19 +8,37 @@
 
 
 from alzheimers import Predict_alhzeimer
+from hemorrhage import Pred_hemo
 
 from flask import Flask
 import json
+import requests
 
 app = Flask(__name__)
 
 @app.route("/")
+    
+
 def hello():
-    obj = Predict_alhzeimer()
-    return json.dumps({
-        "image_data" : obj.getData(obj.url),
-        "prediction" : obj.prediction()
-    })
+    response = requests.get('http://127.0.0.1:8000/image/api')
+    imgData = response.json()
+    imgScanType = imgData["rawdata"]["scan"]
+
+    if imgScanType == 'mri':
+        obj = Predict_alhzeimer()
+        return json.dumps({
+            "image_data" : obj.getData(obj.url),
+            "prediction" : obj.prediction()
+        })
+    elif imgScanType == 'ct':
+        obj = Pred_hemo()
+        return json.dumps({
+            "image_data":obj.getData(obj.dirPath),
+            "prediction":obj.prediction()
+        })
+    else:
+        print "error"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
