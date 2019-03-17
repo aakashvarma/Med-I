@@ -30,11 +30,11 @@ class Pred_tumor(object):
     def __init__(self):
         self.model=None
         self.url = 'http://127.0.0.1:8000/image/api'
-        self.dirPath = 'image file directory.....'
+        self.dirPath = '/Users/aakashvarma/Documents/Coding/Med-I/backend/uploads'
         
     
     def load_train_model(self):
-        os.chdir('.py file directory....')
+        os.chdir('/Users/aakashvarma/Documents/Coding/Med-I/python_files')
         
         self.model=load_model('mri_model_weights.h5')
         print("Loaded model from disk")
@@ -45,7 +45,9 @@ class Pred_tumor(object):
         return self.data
 
     def extractImage(self,path):
-        imgFilename= self.getData(self.url)['filename']
+        imgData = self.getData(self.url)
+        imgFilename = imgData["imagedata"]["filename"]
+        
         os.chdir(path)
         try:
             #img = Image.open(imgFilename)
@@ -69,6 +71,6 @@ class Pred_tumor(object):
         self.predc = self.model.predict_classes(ynew)
         
         if self.predc[0][0]==1:
-            return "tumor"
+            return "Tumor detected"
         else:
-            return "normal"
+            return "Normal"

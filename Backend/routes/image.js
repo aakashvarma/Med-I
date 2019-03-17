@@ -35,11 +35,7 @@ router.post('/upload', urlencodedParser, function (req, res, next) {
         .then(function(imageData){
             image_data = imageData;
             raw_data = req.body;
-            // res.send(imageData);
             res.redirect("../getpredict")
-            // console.log("Image uploaded sussessfully and data is sent to the database.")
-            // console.log(req.body);
-            // console.log(image_data);
         }).catch(next);
     });
 });

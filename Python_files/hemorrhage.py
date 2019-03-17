@@ -102,6 +102,6 @@ class Pred_hemo(object):
         self.predc = self.model.predict_classes(ynew)
         # return json.dumps({"ans" : self.predc})
         if self.predc == [0]:
-            return "no"
+            return "Normal"
         else:
-            return "yes"
+            return "Hemorrhage detected"

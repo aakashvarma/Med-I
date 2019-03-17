@@ -48,14 +48,12 @@
           <h5><strong>Classifier Remarks</strong></h5></br>
           <%if (scan == 'mri') { %>
             <p>Alzheimer's Disease: <%= prediction %></p>
-            <p>Brain Tumor: No </p>
             <p>Brain Haemorrhage: No</p>
           <% } %>
           <!-- <p>Alzheimer's Disease: <%= prediction %></p> -->
           <!-- <p>Brain Tumor: </p> -->
           <%if (scan == 'ct') { %>
             <p>Alzheimer's Disease: No </p>
-            <p>Brain Tumor: No </p>
             <p>Brain Haemorrhage: <%= prediction %></p>
           <% } %>
           <!-- <p>Brain Haemorrhage: <%= prediction %></p> -->

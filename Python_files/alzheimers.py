@@ -91,9 +91,9 @@ class Predict_alhzeimer(object):
         self.predc = model.predict_classes(ynew)
         # return json.dumps({"ans" : self.predc})
         if self.predc == [0]:
-            return "no"
+            return "Normal"
         else:
-            return "yes"
+            return "Alzheimer's detected"
 
 
 

@@ -9,6 +9,7 @@
 
 from alzheimers import Predict_alhzeimer
 from hemorrhage import Pred_hemo
+from tumor import Pred_tumor
 
 from flask import Flask
 import json
@@ -25,11 +26,18 @@ def hello():
     imgScanType = imgData["rawdata"]["scan"]
 
     if imgScanType == 'mri':
-        obj = Predict_alhzeimer()
-        return json.dumps({
-            "image_data" : obj.getData(obj.url),
-            "prediction" : obj.prediction()
-        })
+        try:
+            obj = Predict_alhzeimer()
+            return json.dumps({
+                "image_data" : obj.getData(obj.url),
+                "prediction" : obj.prediction()
+            })
+        except:
+            obj=Pred_tumor()
+            return json.dumps({
+                "image_data":obj.getData(obj.url),
+                "prediction":obj.prediction()
+            })
     elif imgScanType == 'ct':
         obj = Pred_hemo()
         return json.dumps({
