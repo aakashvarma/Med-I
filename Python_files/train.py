@@ -1,86 +1,14 @@
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-sns.set()
-
 df = pd.read_csv('mri-and-alzheimers/oasis_longitudinal.csv')
-
 df = df.loc[df['Visit']==1] # use first visit data only because of the analysis we're doing
 df = df.reset_index(drop=True) # reset index after filtering first visit data
 df['M/F'] = df['M/F'].replace(['F','M'], [0,1]) # M/F column
 df['Group'] = df['Group'].replace(['Converted'], ['Demented']) # Target variable
 df['Group'] = df['Group'].replace(['Demented', 'Nondemented'], [1,0]) # Target variable
 df = df.drop(['MRI ID', 'Visit', 'Hand'], axis=1) # Drop unnecessary columns
-
-
-def bar_chart(feature):
-    Demented = df[df['Group']==1][feature].value_counts().astype(float)
-    Nondemented = df[df['Group']==0][feature].value_counts()
-    df_bar = pd.DataFrame([Demented,Nondemented])
-    df_bar.index = ['Demented','Nondemented']
-    df_bar.plot(kind='bar',stacked=True, figsize=(8,5))
-
-bar_chart('M/F')
-plt.xlabel('Group')
-plt.ylabel('Number of patients')
-plt.legend()
-plt.title('Gender and Demented rate')
-
-
-def analysis():
-    #MMSE : Mini Mental State Examination
-    # Nondemented = 0, Demented =1
-    # Nondemented has higher test result ranging from 25 to 30. 
-    #Min 17 ,MAX 30
-    facet= sns.FacetGrid(df,hue="Group", aspect=3)
-    facet.map(sns.kdeplot,'MMSE',shade= True)
-    facet.set(xlim=(0, df['MMSE'].max()))
-    facet.add_legend()
-    plt.xlim(15.30)
-
-    #bar_chart('ASF') = Atlas Scaling Factor
-    facet= sns.FacetGrid(df,hue="Group", aspect=3)
-    facet.map(sns.kdeplot,'ASF',shade= True)
-    facet.set(xlim=(0, df['ASF'].max()))
-    facet.add_legend()
-    plt.xlim(0.5, 2)
-
-    #eTIV = Estimated Total Intracranial Volume
-    facet= sns.FacetGrid(df,hue="Group", aspect=3)
-    facet.map(sns.kdeplot,'eTIV',shade= True)
-    facet.set(xlim=(0, df['eTIV'].max()))
-    facet.add_legend()
-    plt.xlim(900, 2100)
-
-    #'nWBV' = Normalized Whole Brain Volume
-    # Nondemented = 0, Demented =1
-    facet= sns.FacetGrid(df,hue="Group", aspect=3)
-    facet.map(sns.kdeplot,'nWBV',shade= True)
-    facet.set(xlim=(0, df['nWBV'].max()))
-    facet.add_legend()
-    plt.xlim(0.6,0.9)
-
-    #AGE. Nondemented =0, Demented =0
-    facet= sns.FacetGrid(df,hue="Group", aspect=3)
-    facet.map(sns.kdeplot,'Age',shade= True)
-    facet.set(xlim=(0, df['Age'].max()))
-    facet.add_legend()
-    plt.xlim(50,100)
-
-    #'EDUC' = Years of Education
-    # Nondemented = 0, Demented =1
-    facet= sns.FacetGrid(df,hue="Group", aspect=3)
-    facet.map(sns.kdeplot,'EDUC',shade= True)
-    facet.set(xlim=(df['EDUC'].min(), df['EDUC'].max()))
-    facet.add_legend()
-    plt.ylim(0, 0.16)
-
-    plt.show()
-
-
 
 ############## Removing rows with missing values #################
 
@@ -130,10 +58,14 @@ X = df[['M/F', 'Age', 'EDUC', 'SES', 'MMSE', 'eTIV', 'nWBV', 'ASF']].astype(floa
 # splitting into three sets
 X_trainval, X_test, Y_trainval, Y_test = train_test_split(X, Y, random_state=0)
 
-# Feature scaling
 scaler = MinMaxScaler().fit(X_trainval)
 X_trainval_scaled = scaler.transform(X_trainval)
 X_test_scaled = scaler.transform(X_test)
+
+# Feature scaling
+def getScalledData(inputData):
+        X_test_scaled = scaler.transform(inputData)
+        return X_test_scaled
 
 # Dataset after dropping missing value rows
 Y = df_dropna['Group'].values.astype(float) # Target for the model
@@ -158,14 +90,10 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, roc_curve, auc
 from sklearn.tree import DecisionTreeClassifier
 
-
-def predict():
+def predict(X_test_scaled):
         acc = []
-
-        # Dataset with imputation
         kfolds = 5
         best_score = 0
-
 
         for md in range(1, 9): # iterate different maximum depth values
         # train the model
@@ -183,32 +111,14 @@ def predict():
 
         # a model on the combined training and validation set        
         SelectedDTModel = DecisionTreeClassifier(max_depth=best_parameter).fit(X_trainval_scaled, Y_trainval )
-
-        test_score = SelectedDTModel.score(X_test_scaled, Y_test)
         PredictedOutput = SelectedDTModel.predict(X_test_scaled)
         return PredictedOutput
 
 
-        # test_recall = recall_score(Y_test, PredictedOutput, pos_label=1)
-        # fpr, tpr, thresholds = roc_curve(Y_test, PredictedOutput, pos_label=1)
-        # test_auc = auc(fpr, tpr)
-        # print("Best accuracy on validation set is:", best_score)
-        # print("Best parameter for the maximum depth is: ", best_parameter)
-        # print("Test accuracy with best parameter is ", test_score)
-        # print("Test recall with best parameters is ", test_recall)
-        # print("Test AUC with the best parameter is ", test_auc)
-
-        # m = 'Decision Tree'
-        # acc.append([m, test_score, test_recall, test_auc, fpr, tpr, thresholds])
-
-        # print(PredictedOutput)
-        # return PredictedOutput
-print(X_test)
-
-predict()
+getdata = getScalledData([[144, 0.0, 76.0, 3.0, 26.0, 1391.0, 0.705, 1.262]])
+print(predict(getdata))
 
 
-# [0., 0.36111111, 0.35294118, 0.25, 0.15384615, 0.17476852, 0.42767296, 0.72647059]
 
 
 
