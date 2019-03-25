@@ -81,7 +81,7 @@ X_test_scaled_dna = scaler.transform(X_test_dna)
 
 
 
-
+# print X_test_scaled
 
 
 # ################## classifier
@@ -115,8 +115,8 @@ def predict(X_test_scaled):
         return PredictedOutput
 
 
-getdata = getScalledData([[144, 0.0, 76.0, 3.0, 26.0, 1391.0, 0.705, 1.262]])
-print(predict(getdata))
+# getdata = getScalledData([[144, 0.0, 76.0, 3.0, 26.0, 1391.0, 0.705, 1.262]])
+# print(predict(getdata))
 
 
 

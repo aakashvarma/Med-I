@@ -10,6 +10,7 @@
 from alzheimers import Predict_alhzeimer
 from hemorrhage import Pred_hemo
 from tumor import Pred_tumor
+import train
 
 from flask import Flask
 import json
@@ -25,24 +26,47 @@ def hello():
     imgData = response.json()
     imgScanType = imgData["rawdata"]["scan"]
 
+    try:
+        age = imgData["rawdata"]["age"]
+        if (imgData["rawdata"]["gender"] == 'm'):
+            gender = 1.0
+        else: 
+            gender = 0.0
+        educ = imgData["rawdata"]["educ"]
+        ses = imgData["rawdata"]["ses"]
+        mmse = imgData["rawdata"]["mmse"]
+        etiv = imgData["rawdata"]["etiv"]
+        nebv = imgData["rawdata"]["nebv"]
+        asf = imgData["rawdata"]["asf"]
+
+    # [0.0, 76.0, 16.0, 3.0, 26.0, 1391.0, 0.705, 1.262]
+
+        getdata = train.getScalledData([[gender, age, educ, ses, mmse, etiv, nebv, asf]])
+        ea_prediction = train.predict(getdata)[0]
+    except:
+        ea_prediction = 'none'
+
     if imgScanType == 'mri':
         try:
             obj = Predict_alhzeimer()
             return json.dumps({
                 "image_data" : obj.getData(obj.url),
-                "prediction" : obj.prediction()
+                "prediction" : obj.prediction(),
+                "ea_prediction" : ea_prediction
             })
         except:
             obj=Pred_tumor()
             return json.dumps({
                 "image_data":obj.getData(obj.url),
-                "prediction":obj.prediction()
+                "prediction":obj.prediction(),
+                "ea_prediction" : ea_prediction
             })
     elif imgScanType == 'ct':
         obj = Pred_hemo()
         return json.dumps({
             "image_data":obj.getData(obj.url),
-            "prediction":obj.prediction()
+            "prediction":obj.prediction(),
+            "ea_prediction" : ea_prediction
         })
     else:
         print "error"
