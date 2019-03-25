@@ -21,6 +21,7 @@ router.get('/getpredict', (req, res) => {
             // res.json(data);
             // console.log(data["image_data"]["rawdata"]["name"])
             data = {
+                "ea_prediction": api_data["ea_prediction"],
                 "prediction": api_data["prediction"],
                 "name": api_data["image_data"]["rawdata"]["name"],
                 "age": api_data["image_data"]["rawdata"]["age"],
