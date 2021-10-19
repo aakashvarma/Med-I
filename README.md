@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Med-I][Med-I]](https://i.imgur.com/QdUs5UC.png)
+[![Med-I[Med-I]](https://i.imgur.com/QdUs5UC.png)
 
 
 The main purpose of this project is to make the medical scan examination process more efficient economically and also with respect to time. Moreover, Medicinal errors influence one of each 10 patients around the globe. Specialists took an investigation at concentrates that analysed the restorative demise rate data from 2010 to 2018 and extrapolated that in excess of 250,000 deaths for every year had begun from a helpful mix-up, which implies 9.5% of all deaths consistently alone in the US. 
@@ -120,7 +120,7 @@ This is an example of how to list things you need to use the software and how to
 
 7. Get the medical report
 
-[![Final-Report][Final-report]](https://i.imgur.com/41KsUR9.png)
+[![Final-Report[Final-report]](https://i.imgur.com/41KsUR9.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -151,7 +151,7 @@ Tumour dataset - https://www.iccr-cancer.org/datasets
     - [] Eye disorders
     - [] Skin disorders
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/aakashvarma/Med-I/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
