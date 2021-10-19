@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Med-I][Med-I](https://i.imgur.com/QdUs5UC.png)
+[![Med-I][Med-I]](https://i.imgur.com/QdUs5UC.png)
 
 
 The main purpose of this project is to make the medical scan examination process more efficient economically and also with respect to time. Moreover, Medicinal errors influence one of each 10 patients around the globe. Specialists took an investigation at concentrates that analysed the restorative demise rate data from 2010 to 2018 and extrapolated that in excess of 250,000 deaths for every year had begun from a helpful mix-up, which implies 9.5% of all deaths consistently alone in the US. 
@@ -114,14 +114,13 @@ This is an example of how to list things you need to use the software and how to
    ```
 5. Upload the scan, either MRI or CT
 
-[![Upload-Image[upload-Image](https://i.imgur.com/7DOXtzT.png)
+[![Upload-Image[upload-Image]](https://i.imgur.com/7DOXtzT.png)
 
 6. Upload the appropriate details as asked in the form
 
 7. Get the medical report
 
-[![Final-Report][Final-report](https://i.imgur.com/41KsUR9.png)
-[Imgur](https://i.imgur.com/7DOXtzT.png)
+[![Final-Report][Final-report]](https://i.imgur.com/41KsUR9.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
