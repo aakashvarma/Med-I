@@ -1,5 +1,4 @@
 # Med-I
-hemorrhage dataset-https://www.kaggle.com/mrdvolk/head-ct-hemorrhage-detection-with-keras/data
 
 <div id="top"></div>
 <!--
@@ -43,9 +42,14 @@ hemorrhage dataset-https://www.kaggle.com/mrdvolk/head-ct-hemorrhage-detection-w
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Med-I][Med-I](https://i.imgur.com/QdUs5UC.png)
 
-The main purpose of this project is to make the medical scan examination process more efficient economically and also with respect to time. Moreover, Medicinal errors influence one of each 10 patients around the globe. Specialists took an investigation at concentrates that analysed the restorative demise rate data from 2010 to 2018 and extrapolated that in excess of 250,000 deaths for every year had begun from a helpful mix-up, which implies 9.5% of all deaths consistently alone in the US. This framework that we have proposed diminishes the odds of this human blunder caused in the field of prescription. The target of this venture or framework is to make a web application which is an entry that can be accessed freely by anybody around the globe. Honestly by making the framework open source we are intending to go past the requirements that we have now and making it available to others to both build up the framework and utilise the framework free of expense. We have received a procedure by the help of open source structures. This framework that we have proposed diminishes the odds of this human blunder caused in the field of prescription. The model proposed in this paper have gone a bit more technically advanced and computerised this procedure of distinguishing irregularities inside the cerebrum with the assistance of Artificial Intelligence.The objective of this project or system is to make a web application which is a portal that can be accessed freely by anyone around the world. The technology which has been deployed for the system to become automated by making the system learn and predicting on its own is Convolutional Neural Network
+
+The main purpose of this project is to make the medical scan examination process more efficient economically and also with respect to time. Moreover, Medicinal errors influence one of each 10 patients around the globe. Specialists took an investigation at concentrates that analysed the restorative demise rate data from 2010 to 2018 and extrapolated that in excess of 250,000 deaths for every year had begun from a helpful mix-up, which implies 9.5% of all deaths consistently alone in the US. 
+
+This framework that we have proposed diminishes the odds of this human blunder caused in the field of prescription. The target of this venture or framework is to make a web application which is an entry that can be accessed freely by anybody around the globe. Honestly by making the framework open source we are intending to go past the requirements that we have now and making it available to others to both build up the framework and utilise the framework free of expense. We have received a procedure by the help of open source structures. This framework that we have proposed diminishes the odds of this human blunder caused in the field of prescription. 
+
+The model proposed in this project have gone a bit more technically advanced and computerised this procedure of distinguishing irregularities inside the cerebrum with the assistance of Artificial Intelligence.The objective of this project or system is to make a web application which is a portal that can be accessed freely by anyone around the world. The technology which has been deployed for the system to become automated by making the system learn and predicting on its own is Convolutional Neural Network
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -87,34 +91,46 @@ This is an example of how to list things you need to use the software and how to
 ### Installation
 
 1. Clone the repo
+
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/aakashvarma/Med-I/tree/master
    ```
 2. Install NPM packages
+
    ```sh
    npm install
    ```
 3. Start the node server
+
    ```sh
    cd Backend
    node index.js
    ```
 4. Start the python server
+
    ```sh
    cd Python_files
    python3 app.py
    ```
 5. Upload the scan, either MRI or CT
-6. upload the appropriate details as asked in the form
+
+[![Upload-Image[upload-Image](https://i.imgur.com/7DOXtzT.png)
+
+6. Upload the appropriate details as asked in the form
+
 7. Get the medical report
+
+[![Final-Report][Final-report](https://i.imgur.com/41KsUR9.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
-
+## Datasets
+Hemorrhage dataset - https://www.kaggle.com/mrdvolk/head-ct-hemorrhage-detection-with-keras/data
+Alzheimer's dataset - https://www.kaggle.com/tourist55/alzheimers-dataset-4-class-of-images
+Tumour dataset - https://www.iccr-cancer.org/datasets
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
