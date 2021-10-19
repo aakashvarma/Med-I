@@ -11,7 +11,7 @@ let mainRoutes = require('./routes/main')
 let app = express();
 
 // connect to mongodb
-mongoose.connect('mongodb://aakashvarma:aakash123@ds253094.mlab.com:53094/scandb');
+mongoose.connect(<your_mongo_connection>);
 mongoose.Promise = global.Promise;
 
 // use the body parser
