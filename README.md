@@ -121,6 +121,7 @@ This is an example of how to list things you need to use the software and how to
 7. Get the medical report
 
 [![Final-Report][Final-report](https://i.imgur.com/41KsUR9.png)
+[Imgur](https://i.imgur.com/7DOXtzT.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -128,8 +129,11 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Datasets
+
 Hemorrhage dataset - https://www.kaggle.com/mrdvolk/head-ct-hemorrhage-detection-with-keras/data
+
 Alzheimer's dataset - https://www.kaggle.com/tourist55/alzheimers-dataset-4-class-of-images
+
 Tumour dataset - https://www.iccr-cancer.org/datasets
 
 
