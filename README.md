@@ -75,11 +75,13 @@ To get a local copy up and running follow these simple example steps.
 
 This is an example of how to list things you need to use the software and how to install them.
 * pip
+
   Download the script, from https://bootstrap.pypa.io/get-pip.py.
   ```sh
   python get-pip.py
   ```
 * npm
+
   https://nodejs.org/en/download/
 
 ### Installation
@@ -177,15 +179,25 @@ Your Name - [@varmology](https://twitter.com/varmology) - aakashvarma18@gmail.co
 
 
 [1]	1NP, K.T. and Varghese, D., 2018, May. A Novel Approach for Diagnosing Alzheimer's Disease Using SVM. In 2018 2nd International Conference on Trends in Electronics and Informatics (ICOEI) (pp. 895-898). IEEE.
+
 [2]	Hussain, S., Anwar, S.M. and Majid, M., 2018. Segmentation of glioma tumors in brain using deep convolutional neural network. Neurocomputing, 282, pp.248-261.
+
 [3]	Gao, X.W. and Hui, R., 2016, July. A deep learning based approach to classification of CT brain images. In 2016 SAI Computing Conference (SAI) (pp. 28-31). IEEE.
+
 [4]	Dong, H., Yang, G., Liu, F., Mo, Y. and Guo, Y., 2017, July. Automatic brain tumor detection and segmentation using U-Net based fully convolutional networks. In annual conference on medical image understanding and analysis (pp. 506-517). Springer, Cham.
+
 [5]	Zikic, D., Ioannou, Y., Brown, M. and Criminisi, A., 2014. Segmentation of brain tumor tissues with convolutional neural networks. Proceedings MICCAI-BRATS, pp.36-39
+
 [6]	Akkus, Z., Galimzianova, A., Hoogi, A., Rubin, D.L. and Erickson, B.J., 2017. Deep learning for brain MRI segmentation: state of the art and future directions. Journal of digital imaging, 30(4), pp.449-459.
+
 [7[	Wang, S.H., Phillips, P., Sui, Y., Liu, B., Yang, M. and Cheng, H., 2018. Classification of Alzheimer’s disease based on eight-layer convolutional neural network with leaky rectified linear unit and max pooling. Journal of medical systems, 42(5), p.85.
+
 [8]	Mahapatra, D., Schueffler, P., Tielbeek, J.A., Buhmann, J.M. and Vos, F.M., 2012, October. A supervised learning based approach to detect crohn’s disease in abdominal mr volumes. In International MICCAI Workshop on Computational and Clinical Challenges in Abdominal Imaging (pp. 97-106). Springer, Berlin, Heidelberg.
+
 [9]	Zikic, D., Glocker, B., Konukoglu, E., Criminisi, A., Demiralp, C., Shotton, J., Thomas, O.M., Das, T., Jena, R. and Price, S.J., 2012, October. Decision forests for tissue-specific segmentation of high-grade gliomas in multi-channel MR. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 369-376). Springer, Berlin, Heidelberg.
+
 [10]	Patel, A. and Manniesing, R., 2018, February. A convolutional neural network for intracranial hemorrhage detection in non-contrast CT. In Medical Imaging 2018: Computer-Aided Diagnosis (Vol. 10575, p. 105751B). International Society for Optics and Photonics.
+
 [11]	Valcour, V.G., Masaki, K.H., Curb, J.D. and Blanchette, P.L., 2000. The  detection of dementia in the primary care setting. Archives of internal medicine, 160(19), pp.2964-2968.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
